@@ -18,7 +18,7 @@ class Photo(models.Model):
     def __str__(self):
         return f"{self.author.username} - {self.id}"
 
-
+#in Photo & PhotoTag
 class PhotoTag(models.Model):
     photo = models.ForeignKey(Photo, on_delete=models.CASCADE, related_name='tags')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='photo_tags')
