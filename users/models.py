@@ -47,7 +47,7 @@ class Notification(models.Model):
     def __str__(self):
         return f"{self.recipient.username} - {self.message}"
 
-
+# Signal that automatically creates a Profile when a new User is created
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
