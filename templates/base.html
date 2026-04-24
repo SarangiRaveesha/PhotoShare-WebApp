@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PhotoShare</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: url("{% static 'css/images/background.png' %}") no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .feed {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .card {
+            border-radius: 18px;
+            background-color: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .avatar-lg {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.2);
+            z-index: -1;
+        }
+
+        .navbar-profile {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            margin-right: 12px;
+        }
+
+        .navbar-profile:hover {
+            color: white;
+        }
+
+        .notification-badge {
+            position: relative;
+        }
+
+        .notification-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: red;
+            color: white;
+            border-radius: 999px;
+            font-size: 12px;
+            min-width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5px;
+        }
+
+        .mutual-card {
+            border: 2px solid #5bc0de !important;
+            background: rgba(91, 192, 222, 0.08) !important;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">📸 PhotoShare</a>
+
+        <div class="d-flex align-items-center">
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' user.username %}" class="navbar-profile">
+                    {% if user.profile.avatar %}
+                        <img src="{{ user.profile.avatar.url }}" class="avatar">
+                    {% else %}
+                        <img src="https://via.placeholder.com/38x38.png?text=U" class="avatar">
+                    {% endif %}
+                    <span>{{ user.username }}</span>
+                </a>
+
+                <a href="{% url 'notifications' %}" class="btn btn-outline-light btn-sm me-2 notification-badge">
+                    🔔
+                    {% if unread_notifications_count > 0 %}
+                        <span class="notification-count">{{ unread_notifications_count }}</span>
+                    {% endif %}
+                </a>
+
+                <a href="{% url 'upload' %}" class="btn btn-outline-light btn-sm me-2">➕</a>
+
+                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button class="btn btn-danger btn-sm">Logout</button>
+                </form>
+            {% else %}
+                <a href="/login/" class="btn btn-light btn-sm me-2">Login</a>
+                <a href="/users/register/" class="btn btn-warning btn-sm">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="feed mt-4 mb-5">
+    {% block content %}{% endblock %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
