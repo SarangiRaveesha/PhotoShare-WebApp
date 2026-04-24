@@ -14,7 +14,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-
+# Model to store friend request information
 class FriendRequest(models.Model):
     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_friend_requests')
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_friend_requests')
