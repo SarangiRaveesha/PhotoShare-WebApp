@@ -13,7 +13,7 @@ from django.utils.safestring import mark_safe
 from .models import Photo, PhotoTag, Comment, Like, Reaction
 from users.models import Notification
 
-
+#create_notification
 def create_notification(recipient, actor, message, url=''):
     if recipient and actor == recipient:
         return
