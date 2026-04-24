@@ -29,7 +29,7 @@ class PhotoTag(models.Model):
 
     def __str__(self):
         return f"{self.username_snapshot} tagged in photo {self.photo.id}"
-
+#PhotoTag
     @property
     def display_name(self):
         return self.user.username if self.user else self.username_snapshot
