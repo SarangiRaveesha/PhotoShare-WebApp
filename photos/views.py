@@ -28,7 +28,7 @@ def create_notification(recipient, actor, message, url=''):
 def photo_feed_url(photo):
     return f"/#photo-{photo.id}"
 
-
+#render_mentions
 def render_mentions_html(text):
     escaped_text = escape(text or "")
 
