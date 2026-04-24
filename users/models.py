@@ -26,7 +26,7 @@ class FriendRequest(models.Model):
     def __str__(self):
         return f"{self.sender.username} -> {self.receiver.username}"
 
-
+# Notification model used to notify users about actions
 class Notification(models.Model):
     recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
     actor = models.ForeignKey(
