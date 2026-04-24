@@ -68,7 +68,7 @@ def can_view_photo(user, photo):
         return user.profile in photo.author.profile.friends.all()
     return False
 
-
+#mention_suggestions
 def mention_suggestions(request):
     query = request.GET.get('q', '').strip().lstrip('@')
 
