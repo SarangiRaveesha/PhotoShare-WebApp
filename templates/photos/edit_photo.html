@@ -43,6 +43,8 @@
                         id="editfriend{{ friend.id }}"
                         {% if friend.id in tagged_ids %}checked{% endif %}
                     >
+                      <!-- Checkbox for tagging friends -->
+                    <!-- Pre-checks already tagged users -->
                     <label class="form-check-label" for="editfriend{{ friend.id }}">
                         {{ friend.username }}
                     </label>
