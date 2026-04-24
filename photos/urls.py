@@ -7,6 +7,7 @@ urlpatterns = [
     path('upload/', views.upload_photo, name='upload'),
     path('edit/<int:photo_id>/', views.edit_photo, name='edit_photo'),
     path('delete/<int:photo_id>/', views.delete_photo, name='delete_photo'),
+    #Like / Unlike Photo
     path('like/<int:photo_id>/', views.toggle_like, name='like'),
     path('comment/<int:photo_id>/', views.add_comment, name='comment'),
     path('comment/edit/<int:comment_id>/', views.edit_comment, name='edit_comment'),
