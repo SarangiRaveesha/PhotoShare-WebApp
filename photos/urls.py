@@ -10,6 +10,7 @@ urlpatterns = [
     path('like/<int:photo_id>/', views.toggle_like, name='like'),
     path('comment/<int:photo_id>/', views.add_comment, name='comment'),
     path('comment/edit/<int:comment_id>/', views.edit_comment, name='edit_comment'),
+    #Delete Comment
     path('comment/delete/<int:comment_id>/', views.delete_comment, name='delete_comment'),
     #React to Comment
     path('react/<int:comment_id>/<str:emoji>/', views.react_comment, name='react'),
