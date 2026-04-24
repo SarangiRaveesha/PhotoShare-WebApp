@@ -42,7 +42,7 @@ class Comment(models.Model):
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='replies')
     created_at = models.DateTimeField(auto_now_add=True)
 
-#PhotoTag
+
     @property
     def display_name(self):
         return self.author.username if self.author else "Deleted User"
