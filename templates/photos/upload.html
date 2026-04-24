@@ -31,6 +31,7 @@
                         <input class="form-check-input" type="checkbox" name="tagged_users" value="{{ friend.id }}" id="friend{{ friend.id }}">
                         <label class="form-check-label" for="friend{{ friend.id }}">
                             {{ friend.username }}
+                             <!-- Checkbox allows selecting multiple friends for tagging -->
                         </label>
                     </div>
                 {% endfor %}
