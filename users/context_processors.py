@@ -1,3 +1,4 @@
+# Returns unread notification count for logged-in user, otherwise 0
 def notifications_count(request):
     if request.user.is_authenticated:
         return {
