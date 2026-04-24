@@ -1,3 +1,4 @@
+# Import the path function used to define URL routes
 from django.urls import path
 from . import views
 
