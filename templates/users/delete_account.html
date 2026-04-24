@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card p-4">
+    <h2 class="text-danger mb-3">Delete Account</h2>
+    <p>
+        Your account and profile will be deleted.
+        Your comments on other users' posts will stay, but they will show as <strong>Deleted User</strong>.
+        Your friends will get a notification that your account was deleted.
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete My Account</button>
+        <a href="{% url 'profile' user.username %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}
