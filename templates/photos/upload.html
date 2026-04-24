@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card p-4">
+    <h4 class="mb-3">Upload Image</h4>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" class="form-control mb-3" required>
+
+        <textarea name="caption" class="form-control mb-3" placeholder="Write a caption..."></textarea>
+
+        <label class="form-label">Visibility</label>
+        <select name="visibility" class="form-control mb-3">
+            <option value="public">Public</option>
+            <option value="friends">Friends</option>
+            <option value="private">Private</option>
+        </select>
+
+        <label class="form-label">Tag Friends</label>
+        <div class="border rounded p-3 mb-3" style="max-height:220px; overflow-y:auto;">
+            {% if friends %}
+                {% for friend in friends %}
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="tagged_users" value="{{ friend.id }}" id="friend{{ friend.id }}">
+                        <label class="form-check-label" for="friend{{ friend.id }}">
+                            {{ friend.username }}
+                        </label>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-muted mb-0">No friends available for tagging.</p>
+            {% endif %}
+        </div>
+
+        <button class="btn btn-success w-100">Upload</button>
+    </form>
+</div>
+
+{% endblock %}
