@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.models import User
-from django.contrib.auth import logout, login, authenticate
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
+from django.contrib.auth.models import User # Built-in Django User model (username, password)
+from django.contrib.auth import logout, login, authenticate # login() → log user in logout() → log user out authenticate() → check username & password
+from django.contrib.auth.decorators import login_required # Only logged-in users can access certain functions
+from django.contrib import messages # Show messages like Login successful, Error occurred
 
+# Import database models
 from .models import FriendRequest, Notification
 from photos.models import Photo, PhotoTag, Comment
 
-
+#creates a notification
 def create_notification(recipient, actor, message, url=''):
     if recipient and actor == recipient:
         return
