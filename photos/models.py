@@ -37,6 +37,7 @@ class PhotoTag(models.Model):
 
 class Comment(models.Model):
     photo = models.ForeignKey(Photo, on_delete=models.CASCADE, related_name='comments')
+    #Relationships (ForeignKey)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='comments')
     text = models.TextField()
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='replies')
