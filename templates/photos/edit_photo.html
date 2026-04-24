@@ -6,6 +6,8 @@
     <h4 class="mb-3">Edit Post</h4>
 
     <form method="POST" enctype="multipart/form-data">
+         <!-- POST method for updating data -->
+        <!-- enctype is required to upload image files -->
         {% csrf_token %}
 
         <div class="mb-3">
