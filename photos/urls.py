@@ -14,5 +14,6 @@ urlpatterns = [
     #React to Comment
     path('react/<int:comment_id>/<str:emoji>/', views.react_comment, name='react'),
     path('mention-suggestions/', views.mention_suggestions, name='mention_suggestions'),
+    #Logout
     path('logout/', views.user_logout, name='logout'),
 ]
