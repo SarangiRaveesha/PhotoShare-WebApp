@@ -30,21 +30,21 @@ PhotoShare is a full-featured Django web application that allows users to:
 - **Mentions**: Tag other users with @username in comments
 - **Notifications**: Real-time notifications for all interactions
 
-### 👥 Friend System
+### Friend System
 - Send friend requests to other users
 - Accept or reject friend requests
 - View friend profiles with mutual connection indicators
 - Remove friends from your network
 - See friends' photos based on privacy settings
 
-### 👤 User Profiles
+### User Profiles
 - Customizable profile with bio and avatar
 - View personal photos and tagged photos
 - Display friend connections
 - Show profile statistics (friend count, post count)
 - Account deletion with data cleanup
 
-### 🔔 Notifications
+### Notifications
 - Friend request notifications
 - Photo upload notifications
 - Photo like notifications
