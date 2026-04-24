@@ -45,14 +45,14 @@ DATABASES = {
 DEBUG = True
 ALLOWED_HOSTS = []
 
-# 📁 Media files (uploaded images, etc.)
+# Media files (uploaded images, etc.)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# 🎨 Static files (CSS, JS, images)
+# Static files (CSS, JS, images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
