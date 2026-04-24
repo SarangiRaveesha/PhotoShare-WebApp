@@ -6,6 +6,8 @@
     <!-- Page title -->
 
     <form method="POST" enctype="multipart/form-data">
+        <!-- POST method is required to send data securely -->
+
         {% csrf_token %}
         <input type="file" name="image" class="form-control mb-3" required>
 
