@@ -1,8 +1,8 @@
-# Import Django model classes
-from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+# Import Django model classes 
+from django.db import models # to create database tables
+from django.contrib.auth.models import User # the default User model provided by Django
+from django.db.models.signals import post_save # Import signal that runs after saving an object
+from django.dispatch import receiver # decorator to listen to signals
 
 # Profile model extends with additional information
 class Profile(models.Model):
