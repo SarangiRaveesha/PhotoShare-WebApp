@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# List of URL patterns for this Django app
 urlpatterns = [
     path('register/', views.register, name='register'),
     path('notifications/', views.notifications_view, name='notifications'),
