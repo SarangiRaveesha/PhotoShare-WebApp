@@ -91,8 +91,8 @@ PhotoShare is a full-featured Django web application that allows users to:
 ## Setup Instructions
 
 ### Prerequisites
-- Python 3.x
-- Django 3.x or higher
+- Python 
+- Django 
 
 ### Installation
 1. Clone the repository:
